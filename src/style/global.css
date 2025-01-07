@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Raleway, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Efek hover */
+#tab input[type="radio"]:hover + label {
+    background-color: #131010; 
+    border-color: #3D3D3D; 
+    color: white; 
+    transition: all 0.3s ease;
+}
+
+/* Efek active ketika tombol dipilih */
+#tab input[type="radio"]:checked + label {
+    background-color: #3D3D3D; 
+    border-color: #3D3D3D; 
+    color: white; 
+    transition: all 0.3s ease;
+}
+
+#toast-container {
+    position: fixed; 
+    top: 0;          
+    right: 0;        
+    padding: 1rem;   
+    width: 30%;      
+    z-index: 1;   
+}
+
+#toast-list {
+    list-style: none; /* Menghilangkan bullet */
+    margin: 0;        /* Margin default dihapus */
+    padding: 0;       /* Padding default dihapus */
+}
+
+#toast-list li {
+    padding: 0.75rem;    /* Jarak dalam item */
+    margin-bottom: 0.5rem; /* Jarak antar item */
+    border-radius: 5px;   /* Sudut melengkung */
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper .container {
+    width: 1024px;
+    border-radius: 8px;
+    margin: 2px;
+    padding: 5px;
+    flex-grow: 1;
+    height: fit-content;
+}
+
+.modal-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 15px; 
+}
+
+/* Animasi right-to-left */
+@keyframes rightToLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-rightToLeft {
+    animation: rightToLeft 0.5s forwards;
+}
