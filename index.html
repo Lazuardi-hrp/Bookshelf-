@@ -12,10 +12,10 @@
         <header class="container" id="add-books">
             <h2 class="container-header text-center">Bookshelf App</h2>
             <p class="text-center">Belajar Membuat Front-End Web untuk Pemula</p>
-            <form class="w-50 mx-auto d-flex flex-column align-items-center position-relative" role="search">
-                <input class="form-control rounded-pill pe-5 mb-1" type="search" placeholder="Cari bukunya..." aria-label="Search">
+            <form class="w-50 mx-auto d-flex flex-column align-items-center position-relative" role="search" data-testid="searchBookForm">
+                <input class="form-control rounded-pill pe-5 mb-1" type="search" placeholder="Cari bukunya..." aria-label="Search" data-testid="searchBookFormTitleInput">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                    class="position-absolute me-3 rounded-circle p-1 "
+                    class="position-absolute me-3 rounded-circle p-1"
                     style="width: 2rem; height: 2rem; right: 0; pointer-events: none;">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <section class="w-100">
-                <ul class="list-unstyled" id="book-list"></ul>
+                <ul class="list-unstyled" id="book-list" data-testid="incompleteBookList"></ul>
             </section>
         </main>
     </div>
@@ -63,22 +63,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="book-form" class="w-auto d-flex flex-column position-relative">
+                    <form id="book-form" class="w-auto d-flex flex-column position-relative" data-testid="bookForm">
                         <div class="form-group mb-2">
                             <label class="px-1" for="judul">Judul</label>
-                            <input id="book-title" class="form-control" type="text" placeholder="Judul buku..." required>
+                            <input id="book-title" class="form-control" type="text" placeholder="Judul buku..." required data-testid="bookFormTitleInput">
                         </div>
                         <div class="form-group mb-2">
                             <label class="px-1" for="penulis">Penulis</label>
-                            <input id="book-author" class="form-control" type="text" placeholder="Penulis..." required>
+                            <input id="book-author" class="form-control" type="text" placeholder="Penulis..." required data-testid="bookFormAuthorInput">
                         </div>
                         <div class="form-group mb-2">
                             <label class="px-1" for="tahun">Tahun</label>
-                            <input id="book-year" class="form-control" type="number" placeholder="Tahun terbit..." required>
+                            <input id="book-year" class="form-control" type="number" placeholder="Tahun terbit..." required data-testid="bookFormYearInput">
                         </div>
                         <div class="form-group mb-3 d-flex align-items-start">
                             <div class="me-3 d-flex align-items-center gap-1">
-                                <input type="radio" name="new-book-status" class="form-check-input" id="new-book-unread" checked>
+                                <input type="radio" name="new-book-status" class="form-check-input" id="new-book-unread" checked data-testid="bookFormIsCompleteCheckbox">
                                 <label for="new-book-unread" class="form-check-label">Belum dibaca</label>
                             </div>
                             <div class="me-3 d-flex align-items-center gap-1">
@@ -89,7 +89,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="add-book-button" type="button" class="btn btn-outline-dark">Tambah</button>
+                    <button id="add-book-button" type="button" class="btn btn-outline-dark" data-testid="bookFormSubmitButton">Tambah</button>
                 </div>
             </div>
         </div>
