@@ -29,7 +29,7 @@ const resetForm = () => {
 addBookButton.addEventListener("click", () => {
    const title = document.getElementById("book-title").value;
    const author = document.getElementById("book-author").value;
-   const year = document.getElementById("book-year").value;
+   const year = parseInt(document.getElementById("book-year").value, 10);
    const isComplete = document.getElementById("new-book-read").checked;
 
    if (title && author && year) {
