@@ -16,8 +16,6 @@ export const searchBookFromLocal = (word, isComplete) => {
    );
 };
 
-
-
 // Fungsi Toast
 export const addToast = (status, message, duration = 3000) => {
    const statusClass = (status === "warn") ? "bg-danger" : "bg-success";
@@ -39,7 +37,6 @@ export const addToast = (status, message, duration = 3000) => {
       toast.remove();
    }, duration);
 };
-
 
 /**
  * Menyimpan daftar buku ke localStorage.
@@ -90,17 +87,18 @@ export const changeBookStatusById = (id) => {
  */
 export const createBookElement = (book) => {
    return `
-      <li class="my-3">
-         <div class="p-3 shadow-sm rounded  w-50 d-flex justify-content-between align-items-center bg-white" style="margin-left: 252px; height:80px">
+      <li class="my-3" data-bookid="${book.id}" data-testid="bookItem">
+         <div class="p-3 shadow-sm rounded w-50 d-flex justify-content-between align-items-center bg-white" style="margin-left: 252px; height:80px">
             <div>
-               <h5 class="mb-1 text-dark">${book.title}</h5>
-               <p class="mb-0 text-secondary">${book.author} - ${book.year}</p>
+               <h5 class="mb-1 text-dark" data-testid="bookItemTitle">${book.title}</h5>
+               <p class="mb-0 text-secondary" data-testid="bookItemAuthor">${book.author}</p>
+               <p class="mb-0 text-secondary" data-testid="bookItemYear">${book.year}</p>
             </div>
             <div>
-               <button data-id="${book.id}" class="btn btn-sm btn-outline-success me-2 switch-button">
+               <button data-id="${book.id}" class="btn btn-sm btn-outline-success me-2 switch-button" data-testid="bookItemIsCompleteButton">
                   ${book.isComplete ? "Belum Dibaca" : "Sudah Dibaca"}
                </button>
-               <button data-id="${book.id}" class="btn btn-sm btn-danger delete-button">
+               <button data-id="${book.id}" class="btn btn-sm btn-danger delete-button" data-testid="bookItemDeleteButton">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                      <path fill="#fff" fill-rule="evenodd" d="m6.774 6.4l.812 13.648a.8.8 0 0 0 .798.752h7.232a.8.8 0 0 0 .798-.752L17.226 6.4zm11.655 0l-.817 13.719A2 2 0 0 1 15.616 22H8.384a2 2 0 0 1-1.996-1.881L5.571 6.4H3.5v-.7a.5.5 0 0 1 .5-.5h16a.5.5 0 0 1 .5.5v.7zM14 3a.5.5 0 0 1 .5.5v.7h-5v-.7A.5.5 0 0 1 10 3zM9.5 9h1.2l.5 9H10zm3.8 0h1.2l-.5 9h-1.2z" />
                   </svg>

@@ -76,6 +76,10 @@ html, body {
     border-radius: 15px; 
 }
 
+[data-testid="searchBookFormSubmitButton"] {
+    display: none;
+}
+
 /* Animasi right-to-left */
 @keyframes rightToLeft {
     from {
